@@ -32,8 +32,8 @@ class HomePage extends StatelessWidget {
       ),
       drawer: Drawer(
         child: ListView(
-          children: const [
-            UserAccountsDrawerHeader(
+          children: [
+            const UserAccountsDrawerHeader(
               accountName: Text('Bemin Dawoud'),
               accountEmail: Text('Bemin_dawoud@yahoo.com'),
               currentAccountPicture: CircleAvatar(
@@ -42,22 +42,25 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Profile'),
-              subtitle: Text('Bemin Dawoud'),
-              trailing: Icon(Icons.edit),
+              leading: const Icon(Icons.person),
+              title: const Text('Profile'),
+              subtitle: const Text('Bemin Dawoud'),
+              trailing: const Icon(Icons.edit),
+              onTap: () {},
             ),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Profile'),
-              subtitle: Text('Bemin Dawoud'),
-              trailing: Icon(Icons.edit),
+              leading: const Icon(Icons.person),
+              title: const Text('Profile'),
+              subtitle: const Text('Bemin Dawoud'),
+              trailing: const Icon(Icons.edit),
+              onTap: () {},
             ),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Profile'),
-              subtitle: Text('Bemin Dawoud'),
-              trailing: Icon(Icons.edit),
+              leading: const Icon(Icons.person),
+              title: const Text('Profile'),
+              subtitle: const Text('Bemin Dawoud'),
+              trailing: const Icon(Icons.edit),
+              onTap: () {},
             ),
           ],
         ),
