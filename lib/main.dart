@@ -16,30 +16,20 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('My First Flutter'),
+      appBar: AppBar(
+        title: const Text('My First Flutter'),
+      ),
+      body: Center(
+        child: Container(
+          height: 100,
+          width: 100,
+          color: Colors.green,
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                color: Colors.green,
-                height: 100,
-                width: double.infinity,
-              ),
-              Container(
-                color: Colors.amber,
-                height: 100,
-                width: double.infinity,
-              ),
-              Container(
-                color: Colors.red,
-                height: 100,
-                width: double.infinity,
-              ),
-            ],
-          ),
-        ));
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.edit),
+      ),
+    );
   }
 }
