@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/drawer.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -65,41 +66,7 @@ class _HomePageState extends State<HomePage> {
         },
         child: Icon(Icons.send),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            const UserAccountsDrawerHeader(
-              accountName: Text('Bemin Dawoud'),
-              accountEmail: Text('Bemin_dawoud@yahoo.com'),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text('Profile'),
-              subtitle: const Text('Bemin Dawoud'),
-              trailing: const Icon(Icons.edit),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text('Profile'),
-              subtitle: const Text('Bemin Dawoud'),
-              trailing: const Icon(Icons.edit),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text('Profile'),
-              subtitle: const Text('Bemin Dawoud'),
-              trailing: const Icon(Icons.edit),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
+      drawer: MyDrawer(),
     );
   }
 }
