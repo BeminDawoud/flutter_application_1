@@ -20,15 +20,31 @@ class HomePage extends StatelessWidget {
         title: const Text('My First Flutter'),
       ),
       body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          color: Colors.green,
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: SingleChildScrollView(
+            child: Card(
+              child: Column(
+                children: [
+                  Image.asset('assets/code.jpg'),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  const TextField(
+                    decoration: InputDecoration(
+                        hintText: 'write a description',
+                        labelText: 'Description',
+                        border: OutlineInputBorder()),
+                  )
+                ],
+              ),
+            ),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.edit),
+        child: Icon(Icons.send),
       ),
       drawer: Drawer(
         child: ListView(
