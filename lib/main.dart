@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/drawer.dart';
+import 'drawer.dart';
+import 'card.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -32,30 +33,9 @@ class _HomePageState extends State<HomePage> {
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: SingleChildScrollView(
-            child: Card(
-              child: Column(
-                children: [
-                  Image.asset('assets/code.jpg'),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    description,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  TextField(
-                    controller: _descriptionController,
-                    decoration: InputDecoration(
-                        hintText: 'write a description',
-                        labelText: 'Description',
-                        border: OutlineInputBorder()),
-                  )
-                ],
-              ),
-            ),
+            child: MyCard(
+                description: description,
+                descriptionController: _descriptionController),
           ),
         ),
       ),
