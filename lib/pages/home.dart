@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../drawer.dart';
-import '../card.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,31 +11,43 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var description = 'This is The Description';
-  TextEditingController _descriptionController = TextEditingController();
+  var url = 'https://jsonplaceholder.typicode.com/photos';
+  var data;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  void fetchData() async {
+    var res = await http.get(Uri.parse(url));
+    data = jsonDecode(res.body);
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My First Flutter'),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: SingleChildScrollView(
-            child: MyCard(
-                description: description,
-                descriptionController: _descriptionController),
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          description = _descriptionController.text;
-          setState(() {});
-        },
-        child: Icon(Icons.send),
-      ),
+      body: data != null
+          ? ListView.builder(itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(data[index]["title"]),
+                subtitle: Text('ID: ${data[index]["id"]}'),
+                leading: Image(
+                  image: NetworkImage(data[index]["thumbnailUrl"]),
+                ),
+              );
+            })
+          : const Center(child: CircularProgressIndicator()),
       drawer: MyDrawer(),
     );
   }
