@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var url = 'https://jsonplaceholder.typicode.com/photos';
+  var url = 'https://fakestoreapi.com/products';
   var data;
 
   @override
@@ -38,15 +38,21 @@ class _HomePageState extends State<HomePage> {
         title: const Text('My First Flutter'),
       ),
       body: data != null
-          ? ListView.builder(itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(data[index]["title"]),
-                subtitle: Text('ID: ${data[index]["id"]}'),
-                leading: Image(
-                  image: NetworkImage(data[index]["thumbnailUrl"]),
-                ),
-              );
-            })
+          ? ListView.builder(
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(data[index]["title"]),
+                  subtitle: Text('ID: ${data[index]["id"]}'),
+                  leading: SizedBox(
+                    height: 35,
+                    width: 35,
+                    child: Image(
+                      image: NetworkImage(data[index]["image"]),
+                    ),
+                  ),
+                );
+              })
           : const Center(child: CircularProgressIndicator()),
       drawer: MyDrawer(),
     );
